@@ -21,7 +21,7 @@ order by 1,2
 
 --Total Cases vs Population
 
-select location, date, population, total_cases, (total_cases/population)*100 as PercenPopulationInfected
+select location, date, population, total_cases, (total_cases/population)*100 as PercentPopulationInfected
 from PortfolioProject..CovidDeaths
 --where location like '%germany%'
 order by location, date
@@ -29,11 +29,11 @@ order by location, date
 
 --Countries with highest Infection Rate compared to Population
 
-select location, population, max(total_cases) as HighestInfectionCount, max((total_cases/population))*100 as PercenPopulationInfected
+select location, population, max(total_cases) as HighestInfectionCount, max((total_cases/population))*100 as PercentPopulationInfected
 from PortfolioProject..CovidDeaths
 --where location like '%germany%'
 group by location, population
-order by PercenPopulationInfected desc
+order by PercentPopulationInfected desc
 
 
 --Countries with Highest Death Count per Population
@@ -41,6 +41,15 @@ order by PercenPopulationInfected desc
 select location, max(cast(total_deaths as int)) as TotalDeathCount
 from PortfolioProject..CovidDeaths
 where continent<>''
+group by location
+order by TotalDeathCount desc
+
+
+--Continents with Highest Death Count per Population
+
+select location, max(cast(total_deaths as int)) as TotalDeathCount
+from PortfolioProject..CovidDeaths
+where continent=''
 group by location
 order by TotalDeathCount desc
 
@@ -128,3 +137,47 @@ where dea.continent<>'' --and vac.new_vaccinations<>''
 
 select *
 from PercentPopulationVaccinated01
+
+
+--Queries used for Tableau Project
+
+--1. Total Cases vs Total Deaths
+
+select sum(new_cases) as TotalCases, sum(cast(new_deaths as int)) as TotalDeaths, (sum(cast(new_deaths as int))/sum(new_cases))*100 as DeathPercentage
+from PortfolioProject..CovidDeaths
+where continent<>''
+--order by 1,2
+
+--OR 
+
+--select max(total_cases) as TotalCases, max(cast(total_deaths as int)) as TotalDeaths, (max(cast(total_deaths as int))/max(total_cases))*100 as DeathPercentage
+--from PortfolioProject..CovidDeaths
+----where continent<>''
+----order by TotalCases desc
+
+
+--2. Total Deaths per Continent
+
+select continent, max(cast(total_deaths as int)) as TotalDeaths
+from PortfolioProject..CovidDeaths
+where continent<>''
+group by continent
+order by TotalDeaths desc
+
+
+--3. Countries with highest Infection Rate compared to Population
+
+select location, population, max(total_cases) as HighestInfectionCount, max(total_cases)/population*100 as PercentPopulationInfected
+from PortfolioProject..CovidDeaths
+where continent<>''
+group by location, population
+order by PercentPopulationInfected desc
+
+
+--4.
+
+select location, population, date, max(total_cases) as HighestInfectionCount, max(total_cases)/population*100 as PercentPopulationInfected
+from PortfolioProject..CovidDeaths
+where continent<>''
+group by location, population, date
+order by PercentPopulationInfected desc
