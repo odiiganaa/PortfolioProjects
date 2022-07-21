@@ -2,7 +2,7 @@
 
 This Repository will hold all of the code and queries from the Portfolio Projects I create.
 
-## Bike Sale
+## Bike Sale & Data Science Job Salaries
 
 I used MS Excel to do a data exploration. Then I cleaned the data and visualized it in MS Excel.
 
