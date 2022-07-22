@@ -8,7 +8,7 @@ I used MS Excel to do a data exploration. Then I cleaned the data and visualized
 
 ## Data Science Job Salaries
 
-I used also MS Excel to do a data exploration. Then I cleaned the data and visualized it in MS Excel and in Tableau.
+The dataset is from Kaggle and I used also here MS Excel to do a data exploration. Then I visualized it in MS Excel and in Tableau.
 
 Link to: https://public.tableau.com/views/DataScienceJobSalaries_16584208900070/Dashboard2?:language=de-DE&:display_count=n&:origin=viz_share_link
 
