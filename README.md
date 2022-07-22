@@ -17,4 +17,4 @@ Link to: https://public.tableau.com/views/DataScienceJobSalaries_16584208900070/
 The dataset is from https://ourworldindata.org/covid-deaths (16.06.2022) and I used SQL to perform data exploration on it. 
 I also cleaned the data and visualized it in Tableau. 
 
-Link to: https://public.tableau.com/views/CovidDashboard_TableauProject/Dashboard1?:language=de-DE&:display_count=n&:origin=viz_share_link
+Link to: https://public.tableau.com/views/CovidStatistics_16584952856290/Dashboard1?:language=de-DE&:display_count=n&:origin=viz_share_link
